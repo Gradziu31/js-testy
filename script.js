@@ -1,7 +1,4 @@
-var suma = document.getElementById("koszt");
-
-
-
+var sum = document.getElementById("koszt");
 
 function Config(name, price) {
     this.name = name;
@@ -17,8 +14,6 @@ addition.push(new Config("Szyberdach (koszt 220 zł)", 220));
 addition.push(new Config("Domykanie drzwi (koszt 400 zł)", 400));
 addition.push(new Config("ABS (koszt 200 zł)", 200));
 
-
-
 for (i = 0; i < addition.length; i++) {
     var lista = document.getElementById("lista");
     var p = addition[i].name;
@@ -29,46 +24,44 @@ for (i = 0; i < addition.length; i++) {
     label.appendChild(input)
     input.setAttribute("type", "checkbox");
     input.setAttribute("id", i);
-    //    input.setAttribute('onclick', 'konsola();');
     label.appendChild(par);
     lista.appendChild(label);
     lista.getElementsByTagName("p")[i].innerHTML = p;
 }
-//
+
 var checkboxes = lista.getElementsByTagName("input");
 
 function konsola() {
     selected = [];
     for (var x = 0; x < checkboxes.length; x++) {
         if (checkboxes[x].checked == true) {
-            var dodajeTO = checkboxes[x].attributes["id"];
+            var add = checkboxes[x].attributes["id"];
             selected.push(checkboxes[x].attributes["id"]);
-            console.log(dodajeTO);
+            console.log(add);
         } else {
-            var odejmujeTO = checkboxes[x].attributes["id"];
-            selected.splice(odejmujeTO);
-            console.log(odejmujeTO);
+            var subtract = checkboxes[x].attributes["id"];
+            selected.splice(subtract);
+            console.log(subtract);
         }
 
     }
 }
 
 for (var x = 0; x < checkboxes.length; x++) {
-    lista.getElementsByTagName("input")[x].addEventListener("click", funkcja);
+    lista.getElementsByTagName("input")[x].addEventListener("click", calculate);
 }
 
-
-function funkcja() {
-    calosc = 0;
-    suma.innerHTML = calosc;
+function calculate() {
+    all = 0;
+    sum.innerHTML = all;
     for (var x = 0; x < checkboxes.length; x++) {
         var prices = addition[x].price;
 
         if (checkboxes[x].checked) {
             console.log("zaznaczono, " + x + " z ceną " + prices);
 
-            var calosc = calosc += addition[x].price;
-            suma.innerHTML = calosc;
+            var all = all += addition[x].price;
+            sum.innerHTML = all;
         }
     }
 }
