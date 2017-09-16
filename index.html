@@ -1,79 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="stan">
+                    <h1>Aktualna cena: <span id="koszt">0</span> zł</h1> 
+                </div>
+            </div> 
+        </div>
+        <div class="row text-center">
 
-<div class="container">
-<div class="row">
-  <div class="col-lg-12">
-    <div id="stan">
-      <h1>Aktualna cena: 0 zł</h1>
+            <div class="col-lg-4">
+                <div class="box blue">
+                    <h1>Kamera do nagrywania jazdy</h1>
+                    <p>Zadbaj o bezpieczeństwo!</p>
+                    <img src="https://fordguatemala.com/images/modelos/edge/interior/interior(7).jpg" alt="" class="img-responsive">
+                    <p>podana cena za 1 sztuke!</p>
+                    <div class="box-nr1">
+                        <h2>UWAGA!</h2>
+                        <p>(maksymalnie można zamówić i podłaczyć 2 sztuki)</p>
+                    </div>
+                    <div id="minus" onclick="odejmi();">
+                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                    </div>
+                    <div id="plus" onclick="dodaj();">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                    <p>Cena: 2500 zł</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="box green" id="all">
+                    <h1>Dostępne dodatkowe opcje!</h1>
+                    <p>Zadbaj o wygodę!</p>
+                    <img src="http://static.geekweek.pl/cms/2013/01/modelx-2013-01-14-800-6.jpg" alt="" class="img-responsive">
+                    <h2>Wybierz dodatki:</h2><br>
+                          <ul id="lista"></ul>
+                </div>
+
+
+            </div> 
+
+            <div class="col-lg-4">
+                <div class="box yellow">
+                    <h1>Trzeci box</h1>
+                </div> 
+            </div>
+
+        </div>
     </div>
-  </div>
-</div>
-  <div class="row text-center">
-
-    <div class="col-lg-4">
-      <div class="box blue">
-          <h1>Kamera do nagrywania jazdy</h1>
-          <p>Zadbaj o bezpieczeństwo!</p>
-          <img src="https://fordguatemala.com/images/modelos/edge/interior/interior(7).jpg" alt="" class="img-responsive">
-          <p>podana cena za 1 sztuke!</p>
-          <div class="box-nr1">
-            <h2 >UWAGA!</h2>
-            <p>(maksymalnie można zamówić i podłaczyć 2 sztuki)</p>
-          </div>
-          <div id="minus" onclick="odejmi();">
-            <i class="fa fa-minus-circle" aria-hidden="true"></i>
-          </div>
-          <div id="plus" onclick="dodaj();">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-          </div>
-          <p>Cena: 2500 zł</p>
-      </div>
-    </div>
-
-    <div class="col-lg-4">
-      <div class="box green" id="all">
-        <h1>Dostępne dodatkowe opcje!</h1>
-        <p>Zadbaj o wygodę!</p>
-        <img src="http://static.geekweek.pl/cms/2013/01/modelx-2013-01-14-800-6.jpg" alt="" class="img-responsive">
-        <h2>Wybierz dodatki:</h2><br>
-      <input type="checkbox" id="box_1" onclick="zaznaczonyczynie()"><p class="style_input">Sportowa kierownica <b>(200zł)</b></p><br>
-      <input type="checkbox" id="box_2" onclick="zaznaczonyczynie2()"><p class="style_input">Czujniki cofania <b>(300zł)</b></p><br>
-      <input type="checkbox" id="box_3" onclick="zaznaczonyczynie3()"><p class="style_input">Pakiet S-type <b>(1600zł)</b></p><br>
-      <input type="checkbox" id="box_4" onclick="zaznaczonyczynie4()"><p class="style_input">Wydechy S-type <b>(300zł)</b></p><br>
-      <input type="checkbox" id="box_5" onclick="zaznaczonyczynie5()"><p class="style_input">Oznaczenie S-type <b>(200zł)</b></p><br>
-      <input type="checkbox" id="box_6" onclick="zaznaczonyczynie6()"><p class="style_input">Dodatki S-type <b>(300zł)</b></p><br>
-      </div>
-
-
-
-    </div>
-
-    <div class="col-lg-4">
-      <div class="box yellow">
-          <h1>Opcje dostawy Twojego pojazdu!</h1>
-          <p>Zadbaj o czas!</p>
-          <img src="http://www.elektrobim.pl/zasoby/uploads/Dostawa-DHL.jpg" alt="" class="img-responsive">
-          <h2>Dwie opcje do wyboru!</h2>
-          <p onclick="dostawaUK()" id="dostawaUKK">Wysyłka z UK</p>
-          <p onclick="dostawaUSA()" id="dostawaUSAA">Wysyłka z USA</p>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 </body>
 <script type="text/javascript" src="script.js"></script>
+
 </html>

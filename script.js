@@ -1,137 +1,74 @@
-var cena = 0;
-var stan_klikniec = 0
+var suma = document.getElementById("koszt");
 
-function dodaj(){
-  if ( stan_klikniec < 2) {
-    cena=cena+2500;
-    stan_klikniec++;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
+
+
+
+function Config(name, price) {
+    this.name = name;
+    this.price = price;
 }
 
-function odejmi(){
-  if ( stan_klikniec > 0) {
-    cena=cena-2500;
-    stan_klikniec--;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
+var addition = [];
+
+addition.push(new Config("Pakiet sportowy S line (koszt 150 zł)", 150));
+addition.push(new Config("Nagłośnienie (koszt 100 zł)", 100));
+addition.push(new Config("Wydech (koszt 201 zł)", 201));
+addition.push(new Config("Szyberdach (koszt 220 zł)", 220));
+addition.push(new Config("Domykanie drzwi (koszt 400 zł)", 400));
+addition.push(new Config("ABS (koszt 200 zł)", 200));
+
+
+
+for (i = 0; i < addition.length; i++) {
+    var lista = document.getElementById("lista");
+    var p = addition[i].name;
+    var price = addition[i].price;
+    var label = document.createElement("label");
+    var input = document.createElement("input");
+    var par = document.createElement("p");
+    label.appendChild(input)
+    input.setAttribute("type", "checkbox");
+    input.setAttribute("id", i);
+    //    input.setAttribute('onclick', 'konsola();');
+    label.appendChild(par);
+    lista.appendChild(label);
+    lista.getElementsByTagName("p")[i].innerHTML = p;
 }
-
-
-// var box_1 = document.getElementById("box_1");
-// var box_2 = document.getElementById("box_2").id;
-// var box_3 = document.getElementById("box_3");
 //
-// var tablica1 = ["box_0", "box_1", "box_2", "box_3", "box_4", "box_5",];
-// var cc = 0;
-//
-//
-// while(cc < tablica1.length){
-//   var list1 = document.getElementById("list1");
-//   var lista = document.createElement("li");
-//   list1.appendChild(lista);
-//   var className = tablica1[cc];
-//   var text = document.createTextNode(className);
-//   lista.appendChild(text);
-//   cc++;
-// }
+var checkboxes = lista.getElementsByTagName("input");
 
+function konsola() {
+    selected = [];
+    for (var x = 0; x < checkboxes.length; x++) {
+        if (checkboxes[x].checked == true) {
+            var dodajeTO = checkboxes[x].attributes["id"];
+            selected.push(checkboxes[x].attributes["id"]);
+            console.log(dodajeTO);
+        } else {
+            var odejmujeTO = checkboxes[x].attributes["id"];
+            selected.splice(odejmujeTO);
+            console.log(odejmujeTO);
+        }
 
-
-function zaznaczonyczynie(){
-  var box_1 = document.getElementById("box_1").checked;
-  if ( box_1 == true) {
-    cena=cena+200;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_1 == false) {
-    cena=cena-200;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
+    }
 }
 
-function zaznaczonyczynie2(){
-  var box_2 = document.getElementById("box_2").checked;
-  if ( box_2 == true) {
-    cena=cena+300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_2 == false) {
-    cena=cena-300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
-}
-
-function zaznaczonyczynie3(){
-  var box_3 = document.getElementById("box_3").checked;
-  if ( box_3 == true) {
-    cena=cena+1600;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_3 == false) {
-    cena=cena-1600;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
-}
-
-function zaznaczonyczynie4(){
-  var box_4 = document.getElementById("box_4").checked;
-  if ( box_4 == true) {
-    cena=cena+300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_4 == false) {
-    cena=cena-300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
-}
-
-function zaznaczonyczynie5(){
-  var box_5 = document.getElementById("box_5").checked;
-  if ( box_5 == true) {
-    cena=cena+200;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_5 == false) {
-    cena=cena-200;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
-}
-
-function zaznaczonyczynie6(){
-  var box_6 = document.getElementById("box_6").checked;
-  if ( box_6 == true) {
-    cena=cena+300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  } else if  ( box_6 == false) {
-    cena=cena-300;
-    return stan.innerHTML ="<h1>Aktualna cena:" + (cena) + "zł </h2>";
-  }
+for (var x = 0; x < checkboxes.length; x++) {
+    lista.getElementsByTagName("input")[x].addEventListener("click", funkcja);
 }
 
 
+function funkcja() {
+    calosc = 0;
+    suma.innerHTML = calosc;
+    for (var x = 0; x < checkboxes.length; x++) {
+        var prices = addition[x].price;
 
-var licznikUK = 0;
-function dostawaUK(){
-  var dostawaUKK = document.getElementById("dostawaUKK");
-  if(licznikUK == 0){
-    dostawaUKK.style.border = "thick solid #0000FF";
-    dostawaUSAA.style.border = "0";
-    licznikUK++;
-  } else{
-    dostawaUKK.style.border = "0";
-    dostawaUSAA.style.border = "thick solid #0000FF";
-    licznikUK--;
-  }
-}
+        if (checkboxes[x].checked) {
+            console.log("zaznaczono, " + x + " z ceną " + prices);
 
-
-var licznikUSA = 0;
-function dostawaUSA(){
-
-  var dostawaUSAA = document.getElementById("dostawaUSAA");
-  if(licznikUSA == 0){
-    dostawaUSAA.style.border = "thick solid #0000FF";
-    dostawaUKK.style.border = "0";
-    licznikUSA++;
-  } else{
-    dostawaUSAA.style.border = "0";
-    dostawaUKK.style.border = "thick solid #0000FF";
-    licznikUSA--;
-  }
+            var calosc = calosc += addition[x].price;
+            suma.innerHTML = calosc;
+        }
+    }
 }
