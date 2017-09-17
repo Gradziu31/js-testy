@@ -6,7 +6,7 @@ function Config(name, price) {
 }
 
 var addition = [];
-
+ 
 addition.push(new Config("Pakiet sportowy S line (koszt 150 zł)", 150));
 addition.push(new Config("Nagłośnienie (koszt 100 zł)", 100));
 addition.push(new Config("Wydech (koszt 201 zł)", 201));
@@ -51,6 +51,7 @@ for (var x = 0; x < checkboxes.length; x++) {
     lista.getElementsByTagName("input")[x].addEventListener("click", calculate);
 }
 suma = 0;
+alles = 0;
 function calculate() {
     alles = 0;
     alles += suma;
@@ -72,17 +73,19 @@ document.getElementById("plus").addEventListener("click", dodawaj);
 document.getElementById("minus").addEventListener("click", odejmuj);
 
 
-function dodawaj() {
+function dodawaj(){
     suma += 2500;
     alles += 2500;
     sum.innerText = +suma;
-    calculate()
+    calculate();
+    sum.innerHTML = alles;
 } 
 
-function odejmuj() {
+function odejmuj(){
     suma -= 2500;
     alles -= 2500;
     sum.innerText = +suma;
-    calculate()
+    calculate();
+    sum.innerHTML = alles;
 }
 
