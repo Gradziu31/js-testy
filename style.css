@@ -213,7 +213,10 @@ h2:hover {
 }
 
 .green p:first-of-type {
-    font-size: 1.1em;
+    font-size: 1em;
+}
+.fast-padding{
+    padding: 10px 0px;
 }
 
 .style_input {
@@ -241,7 +244,7 @@ h1 {
 }
 
 input[type=checkbox] {
-    margin-right: 10px!important;
+    margin-right: 3px!important;
 }
 
 .container{

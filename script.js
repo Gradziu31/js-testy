@@ -7,12 +7,18 @@ function Config(name, price) {
 
 var addition = [];
 
-addition.push(new Config("Pakiet sportowy S line (koszt 150 zł)", 150));
-addition.push(new Config("Nagłośnienie (koszt 100 zł)", 100));
-addition.push(new Config("Wydech (koszt 201 zł)", 201));
-addition.push(new Config("Szyberdach (koszt 220 zł)", 220));
-addition.push(new Config("Domykanie drzwi (koszt 400 zł)", 400));
-addition.push(new Config("ABS (koszt 200 zł)", 200));
+//addition.push(new Config("Pakiet sportowy S line (koszt 150 zł)", 150));
+//addition.push(new Config("Nagłośnienie (koszt 100 zł)", 100));
+//addition.push(new Config("Wydech (koszt 201 zł)", 201)); 
+//addition.push(new Config("Szyberdach (koszt 220 zł)", 220));
+//addition.push(new Config("Domykanie drzwi (koszt 400 zł)", 400));
+//addition.push(new Config("ABS (koszt 200 zł)", 200));
+addition.push(new Config("Ładowarka bezprzewodowa (koszt 800 zł)", 800)); 
+addition.push(new Config("Głośnik bluetooth (koszt 250 zł)", 250));
+addition.push(new Config("Etui skórzane (koszt 99 zł)", 99));
+addition.push(new Config("Słuchawki bezprzewodowe (koszt 799 zł)", 799)); 
+addition.push(new Config("Szkło ochronne na ekran (koszt 39 zł)", 39));
+addition.push(new Config("Dodatkowe ubezpieczenie o rok (koszt 599 zł)", 599));
 
 for (i = 0; i < addition.length; i++) {
     var lista = document.getElementById("lista");
