@@ -14,13 +14,6 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div id="stan">
-                    <h1>Aktualna cena: <span id="koszt">0</span> zł</h1> 
-                </div>
-            </div> 
-        </div>
         <div class="row text-center">
 
             <div class="col-lg-4">
@@ -33,10 +26,10 @@
                         <h2>UWAGA!</h2>
                         <p>(maksymalnie można zamówić i podłaczyć 2 sztuki)</p>
                     </div>
-                    <div id="minus" onclick="odejmi();">
+                    <div id="minus">
                         <i class="fa fa-minus-circle" aria-hidden="true"></i>
                     </div>
-                    <div id="plus" onclick="dodaj();">
+                    <div id="plus">
                         <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     </div>
                     <p>Cena: 2500 zł</p>
@@ -57,7 +50,12 @@
 
             <div class="col-lg-4">
                 <div class="box yellow">
-                    <h1>Trzeci box</h1>
+                    <div id="stan">
+                    <h1>Za tą wersję zapłacisz:</h1> 
+                </div>
+                <img src="https://seeklogo.com/images/C/canadian-dollar-cad-logo-ED1E6D587A-seeklogo.com.gif" alt="">
+                    <span class="one-row"><h1 id="koszt">0</h1><h1>zł</h1></span>
+                    
                 </div> 
             </div>
 

@@ -50,18 +50,39 @@ function konsola() {
 for (var x = 0; x < checkboxes.length; x++) {
     lista.getElementsByTagName("input")[x].addEventListener("click", calculate);
 }
-
+suma = 0;
 function calculate() {
-    all = 0;
-    sum.innerHTML = all;
+    alles = 0;
+    alles += suma;
+    sum.innerHTML = alles;
     for (var x = 0; x < checkboxes.length; x++) {
         var prices = addition[x].price;
 
         if (checkboxes[x].checked) {
             console.log("zaznaczono, " + x + " z ceną " + prices);
 
-            var all = all += addition[x].price;
-            sum.innerHTML = all;
+            alles += prices;
+            sum.innerHTML = alles;
+            console.log(suma + alles); 
         }
     }
 }
+
+document.getElementById("plus").addEventListener("click", dodawaj);
+document.getElementById("minus").addEventListener("click", odejmuj);
+
+
+function dodawaj() {
+    suma += 2500;
+    alles += 2500;
+    sum.innerText = +suma;
+    calculate()
+} 
+
+function odejmuj() {
+    suma -= 2500;
+    alles -= 2500;
+    sum.innerText = +suma;
+    calculate()
+}
+
