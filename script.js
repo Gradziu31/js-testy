@@ -6,7 +6,7 @@ function Config(name, price) {
 }
 
 var addition = [];
- 
+
 addition.push(new Config("Pakiet sportowy S line (koszt 150 zł)", 150));
 addition.push(new Config("Nagłośnienie (koszt 100 zł)", 100));
 addition.push(new Config("Wydech (koszt 201 zł)", 201));
@@ -52,6 +52,8 @@ for (var x = 0; x < checkboxes.length; x++) {
 }
 suma = 0;
 alles = 0;
+
+
 function calculate() {
     alles = 0;
     alles += suma;
@@ -64,7 +66,7 @@ function calculate() {
 
             alles += prices;
             sum.innerHTML = alles;
-            console.log(suma + alles); 
+            console.log(suma + alles);
         }
     }
 }
@@ -72,20 +74,39 @@ function calculate() {
 document.getElementById("plus").addEventListener("click", dodawaj);
 document.getElementById("minus").addEventListener("click", odejmuj);
 
+zatrzymaj = 0;
 
-function dodawaj(){
-    suma += 2500;
-    alles += 2500;
-    sum.innerText = +suma;
-    calculate();
-    sum.innerHTML = alles;
-} 
-
-function odejmuj(){
-    suma -= 2500;
-    alles -= 2500;
-    sum.innerText = +suma;
-    calculate();
-    sum.innerHTML = alles;
+function dodawaj() {
+    if (zatrzymaj < 2) {
+        zatrzymaj += 1;
+        suma += 2500;
+        alles += 2500;
+        sum.innerText = +suma;
+        sum.innerHTML = alles;
+        console.log("dodaję +1 do zatrzymaj = " + zatrzymaj);
+        calculate();
+    } else if (zatrzymaj == 2) {
+        zatrzymaj = 2;
+        console.log("else jest 3 zostawiam zatrzymaj na 2 = " + zatrzymaj);
+        calculate();
+    }
 }
 
+function odejmuj() {
+    if (zatrzymaj <= 0) {
+        zatrzymaj = 0;
+        alles -= 2500;
+        sum.innerHTML = alles;
+        calculate();
+        console.log("jest 0 więc zatrzymaj na 0 = " + zatrzymaj);
+    } else {
+        suma -= 2500;
+        alles -= 2500;
+        sum.innerText = +suma;
+        sum.innerHTML = alles;
+        zatrzymaj -= 1;
+        calculate();
+        console.log("odejmuję -1 od odejmowania = " + zatrzymaj);
+    }
+
+}
